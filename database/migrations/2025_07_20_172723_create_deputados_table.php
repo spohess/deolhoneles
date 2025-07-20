@@ -12,7 +12,8 @@ return new class extends Migration {
         Schema::create('deputados', function (Blueprint $table) {
             $table->comment('Tabela de Deputados');
 
-            $table->bigInteger('id')
+            $table->bigInteger('id', false, true)
+                ->primary()
                 ->comment('ID do Deputado');
 
             $table->string('uri')
