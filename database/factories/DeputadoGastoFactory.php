@@ -18,7 +18,9 @@ class DeputadoGastoFactory extends Factory
     public function definition(): array
     {
         return [
-            'deputado_id' => Deputado::factory(),
+            'deputado_id' => Deputado::withoutEvents(function () {
+                return Deputado::factory();
+            }),
             'ano' => fake()->numberBetween(2019, 2025),
             'mes' => fake()->numberBetween(1, 12),
             'tipo_despesa' => fake()->randomElement([
