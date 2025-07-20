@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -19,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $email
  * @property Carbon $created_at
  * @property Carbon $updated_at
+ * @property Collection $gastos
  */
 class Deputado extends Model
 {
@@ -37,4 +40,9 @@ class Deputado extends Model
         'url_foto',
         'email',
     ];
+
+    public function gastos(): HasMany
+    {
+        return $this->hasMany(DeputadoGasto::class);
+    }
 }
