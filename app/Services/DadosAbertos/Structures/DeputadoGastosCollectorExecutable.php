@@ -29,13 +29,13 @@ class DeputadoGastosCollectorExecutable implements ExecutableInterface
             return [
                 'deputado' => $deputado,
                 'url' => config('dadosabertos.base_url') . '/deputados/'
-                    . $deputado->getKey() . '/despesas?ordem=ASC&ordenarPor=ano',
+                    . $deputado->getKey() . '/despesas?ordem=ASC&ordenarPor=ano&ano=2025&mes=3',
             ];
         }
 
         return [
             'deputado' => $deputado,
-            'url' => $next,
+            'url' => $next . '&ano=2025&mes=3',
         ];
     }
 }
