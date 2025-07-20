@@ -20,7 +20,7 @@ final class DeputadosCollectorService extends CollectorService
     {
         $deputados = $this->collect(Arr::get($executable->handler(), 'url'));
 
-        foreach ($deputados as $deputado) {
+        foreach (Arr::get($deputados, 'dados') as $deputado) {
             $this->action->create(
                 $this->transformer->transform($deputado),
             );
