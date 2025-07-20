@@ -18,7 +18,7 @@ class DeputadosCollectorExecutable implements ExecutableInterface
         return [
             'url' => config('dadosabertos.base_url') .
                 '/deputados?&ordem=ASC&ordenarPor=nome&siglaUf=' .
-                Arr::get($this->args, 'siglaUf')
+                Arr::get($this->args, 'siglaUf'),
         ];
     }
 }
