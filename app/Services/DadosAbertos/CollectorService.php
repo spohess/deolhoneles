@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Http;
 
 abstract class CollectorService implements ServiceInterface
 {
-    public function collect(string $url): object
+    public function collect(string $url): array
     {
         return Http::retry(3, 100)
             ->get($url)
             ->throw(CollectionErrorException::class)
-            ->object();
+            ->json();
     }
 }
